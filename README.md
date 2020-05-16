@@ -1,11 +1,11 @@
-####dev
+###dev
 npm run start
 
-####deploy gh-pages
+###deploy gh-pages
 npm run deploy
 
-####prod
+###prod
 npm run build
 
-####prettier
+###prettier
 npm run prettier
