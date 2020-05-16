@@ -5,7 +5,6 @@ const common = require("./webpack.common");
 const CircularDependencyPlugin = require("circular-dependency-plugin");
 
 const { entry, dist, root, env } = require("./paths");
-const proxySettings = require("./webpack.proxy.settings");
 
 const port = process.env.PORT || 4004;
 
@@ -53,6 +52,5 @@ module.exports = merge(common, {
     overlay: true,
     hot: true,
     port,
-    proxy: proxySettings,
   },
 });

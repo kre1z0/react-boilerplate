@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "react with styled-components",
   "main": "index.js",
+  "homepage": "http://kre1z0.github.io/react-boilerplate",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.dev.js --progress --inline",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js --progress --inline",
+    "deploy": "gh-pages -d dist",
     "prettier": "prettier --write \"**/*.js\""
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/kre1z0/react-boilerplate.git"
   },
   "author": "Kre1z0",
   "license": "MIT",
@@ -27,7 +29,6 @@
       "last 1 ie version"
     ]
   },
-  "homepage": "http://jre.everpoint.ru",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
