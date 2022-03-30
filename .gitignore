@@ -1,0 +1,15 @@
+.idea/
+node_modules/
+dist/
+debug/static
+*.iml
+.DS_Store
+webpack-assets.json
+webpack-stats.json
+npm-debug.log
+tasks.md
+draft.ts
+draft.tsx
+.env
+screenshots
+.eslintcache

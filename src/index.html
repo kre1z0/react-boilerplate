@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/png" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <%= htmlWebpackPlugin.options.styles %> <%= htmlWebpackPlugin.options.state %>
+    <script id="app-config" type="text/app-config">
+      <%= htmlWebpackPlugin.options.config %>
+    </script>
+  </head>
+  <body>
+    <div id="root"><%= htmlWebpackPlugin.options.app %></div>
+  </body>
+</html>

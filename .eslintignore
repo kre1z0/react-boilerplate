@@ -1,0 +1,9 @@
+config/
+node_modules
+dist
+draft
+unit-tests
+integration-tests
+jest
+screenshots
+babel.config.js
