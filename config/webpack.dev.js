@@ -25,7 +25,22 @@ module.exports = (...args) =>
         // set the current working directory for displaying module paths
         cwd: process.cwd(),
       }),
-      new DuplicatesPlugin(),
+      new DuplicatesPlugin({
+          // Emit compilation warning or error? (Default: `false`)
+          emitErrors: true,
+          // Handle all messages with handler function (`(report: string)`)
+          // Overrides `emitErrors` output.
+          emitHandler: undefined,
+          // List of packages that can be ignored. (Default: `[]`)
+          // - If a string, then a prefix match of `{$name}/` for each module.
+          // - If a regex, then `.test(pattern)` which means you should add slashes
+          //   where appropriate.
+          //
+          // **Note**: Uses posix paths for all matching (e.g., on windows `/` not `\`).
+          ignoredPackages: undefined,
+          // Display full duplicates information? (Default: `false`)
+          verbose: false
+      }),
     ],
     devServer: {
       historyApiFallback: true,

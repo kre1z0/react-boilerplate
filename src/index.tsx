@@ -1,29 +1,34 @@
 import React from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
-import { Layout } from "components/Layout";
-import { ErrorBoundary } from "components/ErrorBoundary";
-import { GlobalStyles } from "components/GlobalStyles";
+import { THEME } from "constants/theme";
 
-import { Root } from "components/Root";
+import { Root, Layout, ErrorBoundary, GlobalStyles } from "components";
+import { DebugPage } from "pages";
 
-const rootElement = document.getElementById("root");
+const conteiner = document.getElementById("root");
 
-render(
-  <>
-    <GlobalStyles />
-    <Router>
-      <ErrorBoundary>
-        <Root>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<div>Hello world!</div>} />
-            </Routes>
-          </Layout>
-        </Root>
-      </ErrorBoundary>
-    </Router>
-  </>,
-  rootElement,
-);
+if (conteiner) {
+  const root = createRoot(conteiner);
+
+  root.render(
+    <ThemeProvider theme={THEME}>
+      <GlobalStyles />
+      <Router>
+        <ErrorBoundary>
+          <Root>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<DebugPage />} />
+              </Routes>
+            </Layout>
+          </Root>
+        </ErrorBoundary>
+      </Router>
+    </ThemeProvider>,
+  );
+} else {
+  console.error("Root element not found");
+}

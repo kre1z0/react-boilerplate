@@ -4,9 +4,11 @@ import { ReducerActions } from "constants/actions";
 
 import { ReducerState } from "./types";
 
-const DEFAULT_STATE: ReducerState = null;
+const DEFAULT_STATE: ReducerState = {
+  test: null,
+};
 
-export const reduc: Reducer<ReducerState, ReducerActions> = (
+export const reducer: Reducer<ReducerState, ReducerActions> = (
   state = DEFAULT_STATE,
   action,
 ): ReducerState => {

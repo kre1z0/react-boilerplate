@@ -11,3 +11,5 @@ declare module "*.svg" {
 declare module "*.jpg" {
   export default img;
 }
+
+declare module "react-icomoon";
