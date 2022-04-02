@@ -16,3 +16,8 @@
 4. Click on `Import to Set`
 5. Generate Font
 6. Replace `src/assets/selection.json` to downloaded from archive
+
+### Dependencies docs
+
+- [react-router-dom v6](https://github.com/remix-run/react-router/blob/main/docs/getting-started/tutorial.md)
+- [styled-components](https://styled-components.com/docs)

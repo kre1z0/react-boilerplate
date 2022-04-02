@@ -7,6 +7,7 @@ export const DebugPage: FC = (): ReactElement => {
     <>
       <Icon size={44} type="home" />
       <IconButton size={144} type="home" color="green" />
+      <IconButton size={64} type="home" />
     </>
   );
 };

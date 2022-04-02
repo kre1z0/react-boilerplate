@@ -9,20 +9,20 @@ export const IconButtonContainer = styled.span`
   font-size: 0.875rem;
 `;
 
-export const IconButton = styled.span<Pick<IconButtonProps, "disabled" | "darkTheme">>`
+export const IconButton = styled.span<Pick<IconButtonProps, "disabled">>`
   display: inline-flex;
   cursor: ${({ disabled }) => !disabled && "pointer"};
   pointer-events: ${({ disabled }) => disabled && "none"};
 
   ${Icon} {
-    color: ${({ disabled, darkTheme, theme }) => {
-      return !disabled ? (darkTheme ? theme.colors.white : theme.colors.normalGray) : theme.colors.lightGray;
+    color: ${({ disabled, theme }) => {
+      return !disabled ?  theme.colors.normalGray : theme.colors.lightGray;
     }};
 
     &:hover,
     &:active {
-      color: ${({ disabled, darkTheme, theme }) => {
-        return !disabled ? (darkTheme ? theme.colors.green : theme.colors.mainGray) : theme.colors.lightGray;
+      color: ${({ disabled, theme }) => {
+        return !disabled ? theme.colors.mainGray : theme.colors.lightGray;
       }};
     }
   }

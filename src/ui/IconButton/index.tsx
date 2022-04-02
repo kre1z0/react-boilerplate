@@ -6,11 +6,11 @@ import { IconButtonContainer, IconButton as StyledIconButton } from "./styled";
 import { IconButtonProps } from "./types";
 
 const IconButton: React.FC<IconButtonProps> = (props): React.ReactElement => {
-  const { disabled, className, title, darkTheme, ...rest } = props;
+  const { disabled, className, title, ...rest } = props;
 
   return (
     <IconButtonContainer title={title}>
-      <StyledIconButton disabled={disabled} className={className} darkTheme={darkTheme}>
+      <StyledIconButton disabled={disabled} className={className}>
         <Icon {...rest} />
       </StyledIconButton>
     </IconButtonContainer>

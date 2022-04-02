@@ -17,7 +17,7 @@ const presets = [
       targets,
       loose: false,
       useBuiltIns: "usage",
-      corejs: { version: 2, proposals: true },
+      corejs: { version: 3, proposals: true },
     },
   ],
   require.resolve("@babel/preset-react"),
