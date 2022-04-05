@@ -2,6 +2,7 @@ import React, { FC, ReactElement, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
 import { Main } from "./styled";
+import { Menu } from "components/Menu";
 
 import { THEME } from "constants/theme";
 
@@ -24,6 +25,7 @@ export const Layout: FC = ({ children }): ReactElement => {
           : THEME
       }
     >
+      <Menu />
       <input type="checkbox" onChange={() => setTheme(!isDarkTheme)} />
       theme
       <Main>{children}</Main>
