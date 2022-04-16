@@ -16,13 +16,13 @@ export const IconButton = styled.span<Pick<IconButtonProps, "disabled">>`
 
   ${Icon} {
     color: ${({ disabled, theme }) => {
-      return !disabled ?  theme.colors.normalGray : theme.colors.lightGray;
+      return !disabled ? theme.text : theme.textPrimary;
     }};
 
     &:hover,
     &:active {
       color: ${({ disabled, theme }) => {
-        return !disabled ? theme.colors.mainGray : theme.colors.lightGray;
+        return !disabled ? theme.text : theme.textPrimary;
       }};
     }
   }
