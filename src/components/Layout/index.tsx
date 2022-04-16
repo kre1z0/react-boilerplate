@@ -7,7 +7,6 @@ export const Layout: FC<PropsWithChildren<unknown>> = ({ children }): ReactEleme
   return (
     <>
       <Menu />
-      theme
       <Main>{children}</Main>
     </>
   );

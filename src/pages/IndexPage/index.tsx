@@ -9,7 +9,7 @@ import { selectThemeKey } from "styles/theme/slice/selectors";
 
 import { ThemeKeyType } from "styles/theme/slice/types";
 
-export const DebugPage: FC = (): ReactElement => {
+export const IndexPage: FC = (): ReactElement => {
   const theme = useSelector(selectThemeKey);
 
   const dispatch = useDispatch();
@@ -49,9 +49,12 @@ export const DebugPage: FC = (): ReactElement => {
         value="dark"
         isSelected={theme === "dark"}
       />
-      <Icon size={44} type="home" />
-      <IconButton size={144} type="home" color="green" />
-      <IconButton size={64} type="home" />
+      <div style={{ display: "flex" }}>
+        <Icon size="1rem" type="home" />
+        <Icon size="1.5rem" type="home" />
+        <Icon size="2rem" type="home" />
+        <IconButton size="2.5rem" type="home" />
+      </div>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { Layout, ErrorBoundary } from "components";
-import { DebugPage } from "pages";
+import { IndexPage } from "pages";
 import { GlobalStyle } from "styles/global-styles";
 import { ThemeProvider } from "styles/theme/ThemeProvider";
 
@@ -28,7 +28,7 @@ if (conteiner) {
               <ErrorBoundary>
                 <Layout>
                   <Routes>
-                    <Route path={ROUTES.Main} element={<DebugPage />} />
+                    <Route path={ROUTES.Index} element={<IndexPage />} />
                   </Routes>
                 </Layout>
               </ErrorBoundary>

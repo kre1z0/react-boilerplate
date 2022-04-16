@@ -1,1 +1,1 @@
-export { DebugPage } from "./DebugPage";
+export { IndexPage } from "./IndexPage";

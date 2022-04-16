@@ -3,6 +3,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "utils/toolkit";
 import { useInjectReducer } from "utils/redux-injectors";
 import { getThemeFromStorage } from "../utils";
+
 import { ThemeKeyType, ThemeState } from "./types";
 
 export const initialState: ThemeState = {
@@ -19,10 +20,10 @@ const slice = createSlice({
   },
 });
 
-export const { actions: themeActions, reducer } = slice;
+export const { actions: themeActions, reducer, name } = slice;
 
 export const useThemeSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer });
+  useInjectReducer({ key: name, reducer });
 
-  return { actions: slice.actions };
+  return { actions: themeActions };
 };

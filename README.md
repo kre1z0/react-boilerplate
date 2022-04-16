@@ -19,5 +19,7 @@
 
 ### Dependencies docs
 
+- [redux-toolkit](https://redux-toolkit.js.org/api/configureStore)
 - [react-router-dom v6](https://github.com/remix-run/react-router/blob/main/docs/getting-started/tutorial.md)
 - [styled-components](https://styled-components.com/docs)
+- [redux-saga](https://redux-saga.js.org/docs/api)
