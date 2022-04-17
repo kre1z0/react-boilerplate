@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html,
-  body {
+  body,
+  #root {
     height: 100%;
     width: 100%;
     line-height: 1.5;
@@ -14,8 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
-     body.fontLoaded {
-    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  body.fontLoaded {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
   p,
