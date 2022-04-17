@@ -4,6 +4,8 @@ import createSagaMiddleware from "redux-saga";
 
 import { createReducer } from "./createReducer";
 
+import { RootState } from "types";
+
 function configureAppStore() {
   const reduxSagaMonitorOptions = {};
   const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
@@ -19,7 +21,7 @@ function configureAppStore() {
   ] as StoreEnhancer[];
 
   return configureStore({
-    reducer: createReducer(),
+    reducer: (state: RootState | undefined) => state || {},
     middleware: [...getDefaultMiddleware(), ...middlewares],
     devTools: process.env.NODE_ENV !== "production",
     enhancers,

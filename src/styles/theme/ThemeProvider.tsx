@@ -11,8 +11,6 @@ export const ThemeProvider = (props: { children: ReactChild }) => {
   const theme = useSelector(selectTheme);
 
   return (
-    <OriginalThemeProvider theme={theme}>
-      {Children.only(props.children)}
-    </OriginalThemeProvider>
+    <OriginalThemeProvider theme={theme}>{Children.only(props.children)}</OriginalThemeProvider>
   );
 };

@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import "sanitize.css";
 
 import { Layout, ErrorBoundary } from "components";
-import { IndexPage } from "pages";
+import { IndexPage, SwaggerPage } from "pages";
 import { GlobalStyle } from "styles/global-styles";
 import { ThemeProvider } from "styles/theme/ThemeProvider";
 
@@ -35,6 +35,7 @@ if (conteiner) {
                 <Layout>
                   <Routes>
                     <Route path={ROUTES.Index} element={<IndexPage />} />
+                    <Route path={ROUTES.Swagger} element={<SwaggerPage />} />
                   </Routes>
                 </Layout>
               </ErrorBoundary>

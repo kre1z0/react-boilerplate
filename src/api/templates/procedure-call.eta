@@ -1,0 +1,72 @@
+<%
+const { utils, route, config } = it;
+const { _, getInlineParseContent, getParseContent, parseSchema, getComponentByRef } = utils;
+const { parameters, path, method, payload, params, query, internalQuery, formData, security, requestParams } = route.request;
+const { type, errorType, contentTypes } = route.response;
+const routeDocs = includeFile("./route-docs", { config, route, utils });
+const queryName = query?.name ?? "query";
+const pathParams = _.values(parameters);
+const isAllowedRequestBody = !["GET"].includes(_.upperCase(method))
+
+const argToTmpl = ({ name, optional, type }) => `${name}${optional ? '?' : ''}: ${type}`;
+
+const isUrl = _.includes(contentTypes, "image/png") || _.includes(contentTypes, "image/jpeg");
+
+const rawWrapperArgs = config.extractRequestParams ?
+    _.compact([
+        requestParams && {
+          name: pathParams.length ? `{ ${_.join(_.map(pathParams, "name"), ", ")}, ...${queryName} }` : queryName,
+          optional: false,
+          type: getInlineParseContent(requestParams),
+        },
+        ...(!requestParams ? pathParams : []),
+        isAllowedRequestBody && payload,
+    ]) :
+    _.compact([
+        ...pathParams,
+        query,
+        isAllowedRequestBody && payload,
+    ])
+
+const wrapperArgs = _
+    // Sort by optionality
+    .sortBy(rawWrapperArgs, [function(o) { return o.optional }])
+    .map(argToTmpl)
+    .join(', ')
+
+const isPostOrPatch = ["post", "patch"].includes(method);
+const queryTmpl =
+    internalQuery && query != null ? `{${internalQuery}, ...${query.name}}` :
+    internalQuery ? `{${internalQuery}}` :
+    query != null ? query.name :
+    !formData && isPostOrPatch ? "{}" : null;
+const pathTmpl = `\`${path}\``
+const requestArgs = [pathTmpl, isAllowedRequestBody && payload && payload.name && (formData ? `toFormData(${payload.name})` : payload.name), queryTmpl, !formData && isPostOrPatch ? `false` : null]
+    .reverse()
+    .reduce((args, arg) => {
+        if (args.length === 0 && !arg) return args
+        if (arg) {
+            args.push(arg)
+        }
+        return args
+    }, [])
+    .reverse()
+    .join(', ')
+%>
+/**
+<%~ routeDocs.description %>
+
+ * <% /* Here you can add some other JSDoc tags */ %>
+
+<%~ routeDocs.lines %>
+
+ */
+<%~ route.routeName.usage %>(<%~ wrapperArgs %>): Promise<<%~ type %>> {
+    return this.http.<%~ isUrl && type === "File" && method === "get" ? "createUrl" : _.lowerCase(method) %>(<%~ requestArgs %>)<%~
+            isUrl && type === "File" && method === "get" ? "" :
+            type === "File" ? ".blob()" :
+            !type || type === "any" ? ".then(() => {})" :
+            ""
+        %>
+}
+

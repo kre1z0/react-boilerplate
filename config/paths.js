@@ -10,7 +10,8 @@ module.exports = {
   template: resolve("../src/index.html"),
   dist: resolve("../dist"),
   nodeModules: resolve("../node_modules"),
-  staticPath:  "static",
+  staticPath: "static",
   public: resolve("../public"),
   assets: process.env.NODE_ENV === "development" ? "" : "static/assets",
+  env: resolve("../.env"),
 };

@@ -4,7 +4,9 @@ const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 const babelOptions = require("../babel.config");
-const { dist, src, nodeModules, staticPath, public: pub, template, assets } = require("./paths");
+const { dist, src, nodeModules, staticPath, public: pub, template, assets, env } = require("./paths");
+
+const { parsed } = require("dotenv").config({ path: env });
 
 module.exports = () => {
   return {
@@ -70,6 +72,16 @@ module.exports = () => {
         extensions: [".ts", ".tsx", ".js"],
       }),
       new webpack.ProgressPlugin(),
+      new webpack.DefinePlugin({
+        "process.env": JSON.stringify({}),
+        ...Object.keys(parsed || {}).reduce(
+          (envs, envKey) => ({
+            ...envs,
+            [`process.env.${envKey}`]: JSON.stringify(process.env[envKey]),
+          }),
+          {},
+        ),
+      }),
       new HTMLWebpackPlugin({
         title: "unnamed",
         config: "{{config|safe}}",
