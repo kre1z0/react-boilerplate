@@ -18,7 +18,7 @@ export const translationsJson = {
 // Create the 'translations' object to provide full intellisense support for the static json files.
 convertLanguageJsonToObject(en);
 
-export const i18n = i18next
+i18next
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
   // detect user language

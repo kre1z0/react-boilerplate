@@ -2,7 +2,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 import { createSlice } from "utils/toolkit";
 import { useInjectReducer } from "utils/redux-injectors";
-import { getThemeFromStorage } from "../utils";
+import { getThemeFromStorage } from "styles/theme/utils";
 
 import { ThemeKeyType, ThemeState } from "./types";
 

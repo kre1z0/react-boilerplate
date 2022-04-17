@@ -1,4 +1,4 @@
-import { ThemeState } from "styles/theme/slice/types";
+import { ThemeState } from "slices/theme/types";
 
 export interface RootState {
   theme?: ThemeState;
