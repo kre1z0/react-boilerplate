@@ -1,6 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import { InjectedReducersType, RootState } from "./types";
+import { InjectedReducersType } from "store/types";
+import { RootState } from "types";
 
 export function createReducer(injectedReducers: InjectedReducersType = {}) {
   if (Object.keys(injectedReducers).length === 0) {

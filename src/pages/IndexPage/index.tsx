@@ -2,6 +2,7 @@ import React, { FC, ReactElement, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Icon, IconButton, Radio } from "ui";
+import { LanguageSwitch } from "components";
 
 import { themeActions } from "styles/theme/slice";
 import { saveTheme } from "styles/theme/utils";
@@ -55,6 +56,7 @@ export const IndexPage: FC = (): ReactElement => {
         <Icon size="2rem" type="home" />
         <IconButton size="2.5rem" type="home" />
       </div>
+      <LanguageSwitch />
     </>
   );
 };

@@ -37,7 +37,7 @@ module.exports = (...args) =>
           //   where appropriate.
           //
           // **Note**: Uses posix paths for all matching (e.g., on windows `/` not `\`).
-          ignoredPackages: undefined,
+          ignoredPackages: ["sanitize.css"],
           // Display full duplicates information? (Default: `false`)
           verbose: false
       }),

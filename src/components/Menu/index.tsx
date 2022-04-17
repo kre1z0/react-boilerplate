@@ -1,8 +1,12 @@
 import React, { FC, ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 
 import { MenuContainer } from "./styled";
 
-export const Menu: FC<{}> = (): ReactElement => {
+import { translations } from "locales/translations";
 
-  return <MenuContainer>Menu</MenuContainer>;
+export const Menu: FC<{}> = (): ReactElement => {
+  const { t } = useTranslation();
+
+  return <MenuContainer>{t(translations.menu)}</MenuContainer>;
 };

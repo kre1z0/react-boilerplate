@@ -11,5 +11,5 @@ export const ErrorBoundaryContainer = styled.div`
 export const ReloadPage = styled.div`
   cursor: pointer;
   font-size: 1.25rem;
-  color: ${({ theme }) => theme.palette.primary};
+  color: ${({ theme }) => theme.primary};
 `;

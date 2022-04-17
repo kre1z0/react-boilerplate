@@ -1,7 +1,11 @@
+import "react-app-polyfill/stable";
+
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
+
+import "sanitize.css";
 
 import { Layout, ErrorBoundary } from "components";
 import { IndexPage } from "pages";
@@ -12,6 +16,8 @@ import { ROUTES } from "constants/routes";
 
 import { store } from "store";
 import { routerBasename } from "utils/window";
+
+import "locales/i18n";
 
 const conteiner = document.getElementById("root");
 
