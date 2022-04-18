@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import { fontLoaded } from "constants/common";
+
 export const GlobalStyle = createGlobalStyle`
   html,
   body,
@@ -15,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
-  body.fontLoaded {
+  body.${fontLoaded} {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   

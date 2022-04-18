@@ -12,6 +12,8 @@ import { GlobalStyle } from "styles/global-styles";
 import { ThemeProvider } from "styles/theme/ThemeProvider";
 import { Routes } from "routes";
 
+import { fontLoaded } from "constants/common";
+
 import { store } from "store";
 
 import "locales/i18n";
@@ -21,7 +23,7 @@ const conteiner = document.getElementById("root");
 const openSansObserver = new FontFaceObserver("Open Sans", {});
 
 openSansObserver.load().then(() => {
-  document.body.classList.add("fontLoaded");
+  document.body.classList.add(fontLoaded);
 });
 
 if (conteiner) {
@@ -41,4 +43,8 @@ if (conteiner) {
   );
 } else {
   console.error("Root element not found");
+}
+
+if (module.hot) {
+  module.hot.accept(["./locales/i18n"]);
 }

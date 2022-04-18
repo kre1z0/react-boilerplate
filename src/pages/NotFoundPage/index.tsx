@@ -5,9 +5,9 @@ import { LoadingWrapper } from "./styled";
 
 import { lazyLoad } from "utils/loadable";
 
-export const IndexPage = lazyLoad(
+export const NotFoundPage = lazyLoad(
   () => import("./Page"),
-  (module) => module.IndexPage,
+  (module) => module.NotFoundPage,
   {
     fallback: (
       <LoadingWrapper>
